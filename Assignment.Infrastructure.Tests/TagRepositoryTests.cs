@@ -40,7 +40,7 @@ public class TagRepositoryTests
         _context.Tags.Add(newTag);
         _context.SaveChanges();  
 
-        var tagUpdate = new TagUpdateDTO(20000, "Maths >:(");
+        var tagUpdate = new TagUpdateDTO(1, "Maths >:(");
 
         // Act
         var response = _repo.Update(tagUpdate);
@@ -157,7 +157,7 @@ public class TagRepositoryTests
         var tagTest = _repo.Find(1);
 
         // Assert()
-        Assert.Null(tagTest);
+        Assert.Equal(new TagDTO(tag.Id, tag.Name), tagTest);
     }
 
     [Fact]

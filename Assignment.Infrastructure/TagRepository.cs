@@ -51,18 +51,34 @@ public class TagRepository : ITagRepository
         return response;
     }
 
-    public TagDTO Find(int tagId)
+    public TagDTO? Find(int tagId)
     {
-        throw new NotImplementedException();
+        var tagToFind = _context.Tags.FirstOrDefault(t => t.Id == tagId);
+        
+        return tagToFind is null ? null : new TagDTO(tagToFind.Id, tagToFind.Name);
     }
 
     public IReadOnlyCollection<TagDTO> Read()
     {
-        throw new NotImplementedException();
+        var tags = from t in _context.Tags
+            orderby t.Id
+            select new TagDTO(t.Id, t.Name);
+            
+        return tags.ToArray();
     }
 
     public Response Update(TagUpdateDTO tag)
     {
-        throw new NotImplementedException();
+        var tagToUpdate = _context.Tags.FirstOrDefault(t => t.Id == tag.Id);
+        
+        if (tagToUpdate is null) 
+        {
+            return NotFound;
+        }
+
+        tagToUpdate.Name = tag.Name;
+        _context.SaveChanges();
+
+        return Updated;
     }
 }
