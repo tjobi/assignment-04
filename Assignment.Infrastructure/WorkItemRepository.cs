@@ -1,5 +1,6 @@
 namespace Assignment.Infrastructure;
 
+using static State;
 public class WorkItemRepository : IWorkItemRepository
 {
     private readonly KanbanContext _context;
@@ -25,29 +26,48 @@ public class WorkItemRepository : IWorkItemRepository
     }
 
     public IReadOnlyCollection<WorkItemDTO> Read()
-    {
-        throw new NotImplementedException();
-    }
+        => _context.Items.Select(x =>
+                            new WorkItemDTO(
+                                x.Id, x.Title, x.AssignedTo!.Name,
+                                x.Tags.Select(x => x.Name).ToArray(),
+                                x.State))
+                         .ToArray();
 
     public IReadOnlyCollection<WorkItemDTO> ReadByState(State state)
-    {
-        throw new NotImplementedException();
-    }
+        => _context.Items.Where(wi => wi.State == state)
+                         .Select(x =>
+                            new WorkItemDTO(
+                                x.Id, x.Title, x.AssignedTo!.Name,
+                                x.Tags.Select(x => x.Name).ToArray(),
+                                x.State))
+                         .ToArray();
 
     public IReadOnlyCollection<WorkItemDTO> ReadByTag(string tag)
-    {
-        throw new NotImplementedException();
-    }
+        => _context.Items.Where(wi => wi.Tags.Any(t => t.Name == tag))
+                         .Select(x =>
+                            new WorkItemDTO(
+                                x.Id, x.Title, x.AssignedTo!.Name,
+                                x.Tags.Select(x => x.Name).ToArray(),
+                                x.State))
+                         .ToArray();
 
     public IReadOnlyCollection<WorkItemDTO> ReadByUser(int userId)
-    {
-        throw new NotImplementedException();
-    }
+        => _context.Items.Where(wi => wi.AssignedTo != null && wi.AssignedTo.Id == userId)
+                         .Select(x =>
+                            new WorkItemDTO(
+                                x.Id, x.Title, x.AssignedTo!.Name,
+                                x.Tags.Select(x => x.Name).ToArray(),
+                                x.State))
+                         .ToArray();
 
     public IReadOnlyCollection<WorkItemDTO> ReadRemoved()
-    {
-        throw new NotImplementedException();
-    }
+        => _context.Items.Where(wi => wi.State == Removed)
+                        .Select(x =>
+                            new WorkItemDTO(
+                                x.Id, x.Title, x.AssignedTo!.Name,
+                                x.Tags.Select(x => x.Name).ToArray(),
+                                x.State))
+                        .ToArray();
 
     public Response Update(WorkItemUpdateDTO item)
     {

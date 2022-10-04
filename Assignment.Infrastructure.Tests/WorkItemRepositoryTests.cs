@@ -36,6 +36,78 @@ public class WorkItemRepositoryTests
     }
 
     [Fact]
+    public void Updating_exiting_work_item_updates_stateupdated()
+    {
+        // Arrange
+        var wi = new WorkItem("Maths");
+        _context.Items.Add(wi);
+        _context.SaveChanges();
+
+        var wiUpdated = new WorkItemUpdateDTO(1, "Maths", null, null, 
+                                              new string[]{}, Closed);
+
+        // Act
+        var response = _repo.Update(wiUpdated);
+
+        // Assert
+        response.Should().Be(Updated);
+
+        /* Where is the StateUpdated :eyes: */
+        //_context.Items.Find(1).StateUpdated.Should().BeCloseTo(DateTime.UtcNow, precision: TimeSpan.FromSeconds(5))
+    }
+
+    [Fact]
+    public void Update_workitem_edit_tags()
+    {
+        // Arrange
+        var wi = new WorkItem("Maths");
+        var tag = new Tag("Easy");
+        _context.Tags.Add(tag);
+        _context.Items.Add(wi);
+        _context.SaveChanges();
+
+        var wiUpdated = new WorkItemUpdateDTO(wi.Id, "Maths", null, null, 
+                                              new string[]{ tag.Name }, 
+                                              Closed);
+        // Act
+        var reponse = _repo.Update(wiUpdated);
+
+        // Assert
+        reponse.Should().Be(Updated);
+
+        _context.Items.Find(wi.Id)!.Tags.Should().Contain(tag);
+    }
+
+    [Fact]
+    public void Update_workitem_adds_a_new_tag_to_context()
+    {
+        /* Hvordan skal 
+            "Create/update workItem must allow for editing tags."
+           forstås?
+        */ 
+
+        // Arrange
+        string newTagName = "Easy";
+
+        var wi = new WorkItem("Maths");
+        _context.Items.Add(wi);
+        _context.SaveChanges();
+
+        var wiUpdated = new WorkItemUpdateDTO(wi.Id, "Maths", null, null, 
+                                              new string[]{ newTagName }, 
+                                              Closed);
+        // Act
+        var reponse = _repo.Update(wiUpdated);
+
+        // Assert
+        reponse.Should().Be(Updated);
+
+        // assuming the update added a new tag to the Tags dbset.
+        _context.Items.Find(wi.Id)!.Tags.Should().Contain(t => t.Name == newTagName);
+        _context.Tags.Count().Should().Be(1);
+    }
+
+    [Fact]
     public void Deleting_non_existing_work_item_returns_NotFound() 
     {
         // Arrange
@@ -181,6 +253,7 @@ public class WorkItemRepositoryTests
         wiColl.Count.Should().Be(3);
     }
 
+    [Fact]
     public void Read_by_tag_returns_2_elements()    
     {
         // Arrange
