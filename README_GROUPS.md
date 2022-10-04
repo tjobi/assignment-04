@@ -36,7 +36,7 @@
 * Group 34: ahad, sibh, stmp
 * Group 35: base, mesv, aing
 * Group 36: vime, mroa, erja
-* Group 37: rafa, jouj, aldy
+* Group 37: rafa, jouj
 * Group 38: lanr, pekp, shho, olfw
 * Group 39: clwj, nsel, paab, oska
 * Group 40: jown, aegr, tael
