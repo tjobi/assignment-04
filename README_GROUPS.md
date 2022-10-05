@@ -9,7 +9,7 @@
 * Group 5: otja, luel
 * Group 6: clly, jric
 * Group 6: frai, asjo, nlje, frhc
-* Group 7: emkh, luha
+* Group 7: memr, luha, frepe
 * Group 8: siar, gues, adjr
 * Group 9: tcla, adrka, bemi
 
@@ -33,7 +33,8 @@
 * Group 29: mbln
 
 * Group 31: emno, rogy, skas, jwni
-* Group 33: memr
+
+* Group 33: lawu, emkh
 * Group 34: sibh
 * Group 35: base, aing
 * Group 36: vime, rasni, laup
