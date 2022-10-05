@@ -31,7 +31,7 @@
 * Group 28: atro, asjo
 * Group 27: bath, midf
 * Group 29: mbln, mhvl
-* Group 30: crco, okre, raoo
+* Group 30: crco, raoo
 * Group 31: emno, rogy, skas, jwni
 * Group 32: jacg, hcan, mhsi
 * Group 34: ahad, sibh
@@ -39,7 +39,7 @@
 * Group 35: base, mesv, aing
 * Group 36: vime, erja, rasni, laup
 * Group 37: rafa, jouj
-* Group 38: lanr, pekp, shho, olfw
+* Group 38: lanr, shho, olfw
 * Group 39: clwj, nsel, paab, oska
 * Group 40: jown, aegr, tael
 * Group 41: jevb, millh, teim
@@ -47,6 +47,7 @@
 * Group 43: asgm, nidd, omac
 * Group 44: ksig, timj, esmi
 * Group 45: husa, noms
+* Group 46: pekp, okre
 * Group 46: mbjn, hecn
 * Group 46: eikb, mroa, mwha
 * Group 46: nkar, stmp
