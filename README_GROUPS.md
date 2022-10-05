@@ -2,7 +2,8 @@
 
 * Group 0: aguh, rakt, wihe
 * Group 1: ojoh, annro
-* Group 2: laku, erja, raoo, kmsa
+* Group 2: kmsa, hcan, mesv
+* Group 2: laku, erja, raoo
 * Group 3: mlth, oljh
 * Group 4: dadh, mbia
 * Group 5: otja, luel
@@ -32,10 +33,9 @@
 * Group 29: mbln
 
 * Group 31: emno, rogy, skas, jwni
-* Group 32: hcan
 * Group 33: lawu, memr
 * Group 34: sibh
-* Group 35: base, mesv, aing
+* Group 35: base, aing
 * Group 36: vime, rasni, laup
 * Group 37: rafa, jouj
 * Group 38: shho, olfw
