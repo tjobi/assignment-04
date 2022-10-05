@@ -13,7 +13,7 @@
 * Group 9: tcla, adrka, bemi
 * Group 10: kmey
 * Group 11: json, nkrj, weny
-* Group 12: mfjo, malsc, tbav
+* Group 12: malsc, tbav
 * Group 13: elbr
 * Group 14: tbru, kbej, hast
 * Group 15: mreh, nicha, mgan
@@ -33,7 +33,7 @@
 * Group 29: mbln, mhvl
 * Group 30: crco, raoo
 * Group 31: emno, rogy, skas, jwni
-* Group 32: jacg, hcan, mhsi
+* Group 32: hcan, mhsi
 * Group 34: ahad, sibh
 * Group 33: lawu, memr
 * Group 35: base, mesv, aing
@@ -47,6 +47,7 @@
 * Group 43: asgm, nidd, omac
 * Group 44: ksig, timj, esmi
 * Group 45: husa, noms
+* Group 46: lufr, mfjo, jacg
 * Group 46: pekp, okre
 * Group 46: mbjn, hecn
 * Group 46: eikb, mroa, mwha
