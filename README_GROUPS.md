@@ -20,7 +20,7 @@
 * Group 16: brml, phimo, chbl
 * Group 17: frgm, avia
 * Group 18: fefa, vist, asly
-* Group 19: ehel, monha, jakst
+* Group 19: ehel, monha, jakst, olfw, lawu
 * Group 20: labp, tosp, bhag
 * Group 21: behv, aarv
 * Group 22: aldy, nihp, jklo
@@ -33,12 +33,12 @@
 * Group 29: mbln
 
 * Group 31: emno, rogy, skas, jwni
-* Group 33: lawu, memr
+* Group 33: memr
 * Group 34: sibh
 * Group 35: base, aing
 * Group 36: vime, rasni, laup
 * Group 37: rafa, jouj
-* Group 38: shho, olfw
+* Group 38: shho
 * Group 39: clwj, nsel, paab, oska
 * Group 40: jown, aegr, tael
 * Group 41: jevb, millh, teim
