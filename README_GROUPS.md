@@ -14,7 +14,7 @@
 * Group 10: kmey, laup
 * Group 11: json, nkrj, weny
 * Group 12: mfjo, malsc, tbav
-* Group 13: rasni, elbr, 
+* Group 13: elbr
 * Group 14: tbru, kbej, hast
 * Group 15: mreh, nicha, mgan
 * Group 16: brml, phimo, chbl
@@ -37,7 +37,7 @@
 * Group 34: ahad, sibh
 * Group 33: lawu, memr
 * Group 35: base, mesv, aing
-* Group 36: vime, erja
+* Group 36: vime, erja, rasni
 * Group 37: rafa, jouj
 * Group 38: lanr, pekp, shho, olfw
 * Group 39: clwj, nsel, paab, oska
