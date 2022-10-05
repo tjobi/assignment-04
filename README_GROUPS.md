@@ -20,7 +20,7 @@
 * Group 17: frgm, frhc, avia
 * Group 18: fefa, vist, asly
 * Group 19: ehel, monha, jakst
-* Group 20: labp, nlje, bhag
+* Group 20: labp, bhag, bath, tosp
 * Group 21: hecn, behv, aarv
 * Group 22: frepe, nihp, siol
 * Group 23: lufr, tuka, tokj
