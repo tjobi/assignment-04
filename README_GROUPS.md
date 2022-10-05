@@ -27,9 +27,9 @@
 * Group 24: emtj, biha
 * Group 25: amdh, selb
 * Group 26: dlha, jawb, ssbo
-* Group 27: bath, midf
+* Group 27: bath
 * Group 28: atro, asjo, monha, annro
-* Group 29: mbln, mhvl
+* Group 29: mbln
 
 * Group 31: emno, rogy, skas, jwni
 * Group 32: hcan
@@ -38,7 +38,7 @@
 * Group 35: base, mesv, aing
 * Group 36: vime, rasni, laup
 * Group 37: rafa, jouj
-* Group 38: lanr, shho, olfw
+* Group 38: shho, olfw
 * Group 39: clwj, nsel, paab, oska
 * Group 40: jown, aegr, tael
 * Group 41: jevb, millh, teim
@@ -54,3 +54,4 @@
 * Group 46: nkar, stmp
 * Group 46: unla, phla
 * Group 53: maxt, siol, kmey, mhsi
+* Group 54: mhvl, lanr, midf
