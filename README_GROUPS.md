@@ -1,7 +1,7 @@
 # Assignment 04
 
 * Group 0: aguh, rakt, wihe
-* Group 1: ojoh, annro
+* Group 1: ojoh
 * Group 2: kmsa, hcan, mesv
 * Group 2: laku, erja, raoo
 * Group 3: mlth, oljh
@@ -20,7 +20,7 @@
 * Group 16: brml, phimo, chbl
 * Group 17: frgm, avia
 * Group 18: fefa, vist, asly
-* Group 19: ehel, monha, jakst, olfw, lawu
+* Group 19: ehel, jakst, olfw, lawu
 * Group 20: labp, tosp, bhag
 * Group 21: behv, aarv
 * Group 22: aldy, nihp, jklo
