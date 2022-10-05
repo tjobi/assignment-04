@@ -5,12 +5,12 @@
 * Group 2: laku, erja, raoo, kmsa
 * Group 3: mlth, oljh
 * Group 4: dadh, mbia
-* Group 5: otja, maxt, luel
+* Group 5: otja, luel
 * Group 6: clly, frai, jric
 * Group 7: emkh, tuho, luha
 * Group 8: siar, gues, adjr
 * Group 9: tcla, adrka, bemi
-* Group 10: kmey
+
 * Group 11: json, nkrj, weny
 * Group 12: malsc, tbav
 * Group 13: elbr
@@ -32,7 +32,7 @@
 * Group 29: mbln, mhvl
 
 * Group 31: emno, rogy, skas, jwni
-* Group 32: hcan, mhsi
+* Group 32: hcan
 * Group 33: lawu, memr
 * Group 34: sibh
 * Group 35: base, mesv, aing
@@ -53,3 +53,4 @@
 * Group 46: eikb, mroa, mwha
 * Group 46: nkar, stmp
 * Group 46: unla, phla
+* Group 53: maxt, siol, kmey, mhsi
