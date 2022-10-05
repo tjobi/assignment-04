@@ -3,7 +3,7 @@
 * Group 0: aguh, rakt, wihe
 * Group 1: ojoh, annro
 * Group 2: laku, tosp, kmsa
-* Group 3: mlth, nkar, oljh
+* Group 3: mlth, oljh
 * Group 4: dadh, mbia
 * Group 5: otja, maxt, luel
 * Group 6: clly, frai, jric
@@ -33,8 +33,8 @@
 * Group 30: crco, okre, raoo
 * Group 31: emno, rogy, skas, jwni
 * Group 32: jacg, hcan, mhsi
+* Group 34: ahad, sibh
 * Group 33: lawu, memr
-* Group 34: ahad, sibh, stmp
 * Group 35: base, mesv, aing
 * Group 36: vime, mroa, erja
 * Group 37: rafa, jouj
@@ -46,4 +46,5 @@
 * Group 43: asgm, nidd, omac
 * Group 44: ksig, timj, esmi
 * Group 45: husa, noms
+* Group 46: nkar, stmp
 * Group 46: unla, phla
