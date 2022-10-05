@@ -27,8 +27,8 @@
 * Group 24: emtj, biha
 * Group 25: amdh, selb
 * Group 26: dlha, jawb, ssbo
-* Group 28: atro, asjo
 * Group 27: bath, midf
+* Group 28: atro, asjo, monha, annro
 * Group 29: mbln, mhvl
 * Group 30: crco
 * Group 31: emno, rogy, skas, jwni
