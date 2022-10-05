@@ -14,7 +14,7 @@
 * Group 11: json, nkrj, weny
 * Group 12: mfjo, malsc, tbav
 * Group 13: rasni, elbr, jklo
-* Group 14: tbru, kbej, hast
+* Group 14: tbru, shho, hast
 * Group 15: mreh, nicha, mgan
 * Group 16: brml, phimo, chbl
 * Group 17: frgm, frhc, avia
