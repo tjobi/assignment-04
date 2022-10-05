@@ -1,8 +1,9 @@
 # Assignment 04
 
+
 * Group 0: aguh, rakt, wihe
 * Group 1: ojoh, annro
-* Group 2: laku, tosp, kmsa
+* Group 2: laku, kmsa
 * Group 3: mlth, oljh
 * Group 4: dadh, mbia
 * Group 5: otja, maxt, luel
@@ -20,7 +21,7 @@
 * Group 17: frgm, frhc, avia
 * Group 18: fefa, vist, asly
 * Group 19: ehel, monha, jakst
-* Group 20: labp, bhag, bath, tosp
+* Group 20: labp, tosp, bhag
 * Group 21: hecn, behv, aarv
 * Group 22: aldy, nihp, jklo
 * Group 23: lufr, tuka, tokj
