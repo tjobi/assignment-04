@@ -38,7 +38,7 @@
 * Group 35: base, aing
 * Group 36: vime, rasni, laup
 * Group 37: rafa, jouj
-* Group 38: shho, olfw
+* Group 38: olfw
 * Group 39: clwj, nsel, paab, oska
 * Group 40: jown, aegr, tael
 * Group 41: jevb, millh, teim
