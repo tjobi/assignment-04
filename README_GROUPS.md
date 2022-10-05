@@ -1,9 +1,8 @@
 # Assignment 04
 
-
 * Group 0: aguh, rakt, wihe
 * Group 1: ojoh, annro
-* Group 2: laku, kmsa
+* Group 2: laku, erja, raoo, kmsa
 * Group 3: mlth, oljh
 * Group 4: dadh, mbia
 * Group 5: otja, maxt, luel
@@ -31,13 +30,13 @@
 * Group 28: atro, asjo
 * Group 27: bath, midf
 * Group 29: mbln, mhvl
-* Group 30: crco, raoo
+* Group 30: crco
 * Group 31: emno, rogy, skas, jwni
 * Group 32: hcan, mhsi
 * Group 34: ahad, sibh
 * Group 33: lawu, memr
 * Group 35: base, mesv, aing
-* Group 36: vime, erja, rasni, laup
+* Group 36: vime, rasni, laup
 * Group 37: rafa, jouj
 * Group 38: lanr, shho, olfw
 * Group 39: clwj, nsel, paab, oska
