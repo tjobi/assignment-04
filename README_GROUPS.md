@@ -24,7 +24,7 @@
 * Group 20: labp, tosp, bhag
 * Group 21: behv, aarv
 * Group 22: aldy, nihp, jklo
-* Group 23: lufr, tuka, tokj
+* Group 23: tuka, tokj
 * Group 24: emtj, biha
 * Group 25: amdh, selb
 * Group 26: dlha, jawb, ssbo
