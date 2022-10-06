@@ -20,6 +20,10 @@ public class WorkItemRepositoryTests
 
         _context = context;
         _repo = new WorkItemRepository(_context);
+
+        var user1 = new User("Sigurd", "shho@itu.dk");
+        _context.Users.Add(user1);
+        _context.SaveChanges();
     }
 
     [Fact]
@@ -43,7 +47,8 @@ public class WorkItemRepositoryTests
         _context.Items.Add(wi);
         _context.SaveChanges();
 
-        var wiUpdated = new WorkItemUpdateDTO(1, "Maths", null, null, 
+        var user = _context.Users.FirstOrDefault(u => u.Name == "Sigurd");
+        var wiUpdated = new WorkItemUpdateDTO(1, "Maths", user?.Id, null, 
                                               new string[]{}, Closed);
 
         // Act
@@ -66,7 +71,8 @@ public class WorkItemRepositoryTests
         _context.Items.Add(wi);
         _context.SaveChanges();
 
-        var wiUpdated = new WorkItemUpdateDTO(wi.Id, "Maths", null, null, 
+        var user = _context.Users.FirstOrDefault(u => u.Name == "Sigurd");
+        var wiUpdated = new WorkItemUpdateDTO(wi.Id, "Maths", user?.Id, null, 
                                               new string[]{ tag.Name }, 
                                               Closed);
         // Act
@@ -93,7 +99,9 @@ public class WorkItemRepositoryTests
         _context.Items.Add(wi);
         _context.SaveChanges();
 
-        var wiUpdated = new WorkItemUpdateDTO(wi.Id, "Maths", null, null, 
+        var user = _context.Users.FirstOrDefault(u => u.Name == "Sigurd");
+
+        var wiUpdated = new WorkItemUpdateDTO(wi.Id, "Maths", user?.Id, null, 
                                               new string[]{ newTagName }, 
                                               Closed);
         // Act
@@ -121,16 +129,168 @@ public class WorkItemRepositoryTests
     }
 
     [Fact]
+    public void Deleting_work_item_with_state_New_deletes_it()
+    {
+        // Arrange
+        var wi = new WorkItem("Fish");
+        _context.Items.Add(wi);
+        _context.SaveChanges();
+
+        // Act
+        var entity = _repo.Read().FirstOrDefault(i => i.Title == wi.Title);
+        Assert.NotNull(entity);
+        _repo.Delete(entity.Id);
+        _context.SaveChanges();
+        var result = _repo.Find(entity.Id);
+
+        // Assert
+        Assert.Null(result);
+    }
+
+    [Fact]
+    public void Deleting_work_item_with_state_Active_sets_state_to_Removed()
+    {
+        // Arrange
+        var wi = new WorkItem("Drink");
+        _context.Items.Add(wi);
+        _context.SaveChanges();
+        
+        var entity = _repo.Read().FirstOrDefault(i => i.Title == wi.Title);
+        Assert.NotNull(entity);
+        var user = _context.Users.FirstOrDefault(u => u.Name == "Sigurd");
+        var updateDTO = new WorkItemUpdateDTO(entity.Id, "Updated title", user?.Id, null, new List<string>(), Active);
+        _repo.Update(updateDTO);
+        _context.SaveChanges();
+
+        // Act
+        _repo.Delete(entity.Id);
+        _context.SaveChanges();
+        var result = _repo.Find(entity.Id);
+
+        // Assert
+        Assert.NotNull(result);
+        Assert.Equal(Removed, result.State);
+    }
+
+    [Fact]
+    public void Deleting_work_item_with_state_Resolved_sets_state_to_Conflict()
+    {
+        // Arrange
+        var wi = new WorkItem("Resolved");
+        _context.Items.Add(wi);
+        _context.SaveChanges();
+        
+        var entity = _repo.Read().FirstOrDefault(i => i.Title == wi.Title);
+        Assert.NotNull(entity);
+        var user = _context.Users.FirstOrDefault(u => u.Name == "Sigurd");
+        var updateDTO = new WorkItemUpdateDTO(entity.Id, "Updated title", user?.Id, null, new List<string>(), Resolved);
+        _repo.Update(updateDTO);
+        _context.SaveChanges();
+
+        // Act
+        var result = _repo.Delete(entity.Id);
+
+        // Assert
+        Assert.Equal(Conflict, result);
+    }
+
+    [Fact]
+    public void Deleting_work_item_with_state_Closed_sets_state_to_Conflict()
+    {
+        // Arrange
+        var wi = new WorkItem("Closed");
+        _context.Items.Add(wi);
+        _context.SaveChanges();
+        
+        var entity = _repo.Read().FirstOrDefault(i => i.Title == wi.Title);
+        Assert.NotNull(entity);
+        var user = _context.Users.FirstOrDefault(u => u.Name == "Sigurd");
+        var updateDTO = new WorkItemUpdateDTO(entity.Id, "Updated title", user?.Id, null, new List<string>(), Closed);
+        _repo.Update(updateDTO);
+        _context.SaveChanges();
+
+        // Act
+        var result = _repo.Delete(entity.Id);
+
+        // Assert
+        Assert.Equal(Conflict, result);
+    }
+
+    [Fact]
+    public void Deleting_work_item_with_state_Removed_sets_state_to_Conflict()
+    {
+        // Arrange
+        var wi = new WorkItem("Removed");
+        _context.Items.Add(wi);
+        _context.SaveChanges();
+        
+        var entity = _repo.Read().FirstOrDefault(i => i.Title == wi.Title);
+        Assert.NotNull(entity);
+        var user = _context.Users.FirstOrDefault(u => u.Name == "Sigurd");
+        var updateDTO = new WorkItemUpdateDTO(entity.Id, "Updated title", user?.Id, null, new List<string>(), Removed);
+        _repo.Update(updateDTO);
+        _context.SaveChanges();
+
+        // Act
+        var result = _repo.Delete(entity.Id);
+
+        // Assert
+        Assert.Equal(Conflict, result);
+    }
+
+    [Fact]
     public void Creating_a_work_item_returns_Created() 
     {
         // Arrange
-        var createDTO = new WorkItemCreateDTO("new", null, null, new List<string>());
+        var user = _context.Users.FirstOrDefault(u => u.Name == "Sigurd");
+        var createDTO = new WorkItemCreateDTO("new", user?.Id, null, new List<string>());
 
         // Act
         var (result, _) = _repo.Create(createDTO);
 
         // Assert
         Assert.Equal(Created, result);
+    }
+
+    [Fact]
+    public void Creating_a_work_item_sets_Created_and_StateUpdated_to_now() 
+    {
+        // Arrange
+        var user = _context.Users.FirstOrDefault(u => u.Name == "Sigurd");
+        var createDTO = new WorkItemCreateDTO("created time", user?.Id, null, new List<string>());
+
+        // Act
+        _repo.Create(createDTO);
+        _context.SaveChanges();
+        var entity = _repo.Read().FirstOrDefault(i => i.Title == createDTO.Title);
+        Assert.NotNull(entity);
+        var entityDetails = _repo.Find(entity.Id);
+        
+        // Assert
+        Assert.NotNull(entityDetails);
+        entityDetails.Created.Should().BeCloseTo(DateTime.Now, precision: TimeSpan.FromSeconds(1.0));
+        entityDetails.StateUpdated.Should().BeCloseTo(DateTime.Now, precision: TimeSpan.FromSeconds(1.0));
+    }
+
+    [Fact]
+    public void Updating_a_work_item_sets_StateUpdated_to_now() 
+    {
+        // Arrange
+        var user = _context.Users.FirstOrDefault(u => u.Name == "Sigurd");
+        var createDTO = new WorkItemCreateDTO("updated time", user?.Id, null, new List<string>());
+        _repo.Create(createDTO);
+        _context.SaveChanges();
+        var entity = _repo.Read().FirstOrDefault(i => i.Title == createDTO.Title);
+        Assert.NotNull(entity);
+        var updateDTO = new WorkItemUpdateDTO(entity.Id, entity.Title, user?.Id, "UPDATE", new List<string>(), Active);
+
+        // Act
+        _repo.Update(updateDTO);
+        var entityDetails = _repo.Find(entity.Id);
+
+        // Assert
+        Assert.NotNull(entityDetails);
+        entityDetails.StateUpdated.Should().BeCloseTo(DateTime.Now, precision: TimeSpan.FromSeconds(1.0));
     }
 
     [Fact]
@@ -142,7 +302,7 @@ public class WorkItemRepositoryTests
         _context.SaveChanges();
 
         var updateWiDTO = new WorkItemUpdateDTO(
-            1, "Do Maths", 1, null, new List<string>(), Active 
+            1, "Do Maths", 123, null, new List<string>(), Active 
         );
 
         // Act
